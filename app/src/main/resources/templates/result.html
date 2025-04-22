@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Result</title>
+</head>
+
+<body>
+    <h2 th:text="${state.result}"></h2>
+
+    <h3>Your Final Hand</h3>
+    <ul>
+        <li th:each="card : ${state.playerHand.cardDescriptions}" th:text="${card}"></li>
+    </ul>
+    <p>Total: <span th:text="${state.playerHand.score}"></span></p>
+
+    <h3>Dealer's Final Hand</h3>
+    <ul>
+        <li th:each="card : ${state.dealerHand.cardDescriptions}" th:text="${card}"></li>
+    </ul>
+    <p>Total: <span th:text="${state.dealerHand.score}"></span></p>
+
+    <a th:href="@{/blackjack/start}">Play Again</a>
+</body>
+
+</html>
